@@ -15,6 +15,7 @@ public class MessageListener {
     @RabbitListener(queues = RabbitConfig.QUEUE_ORDERS)
     public void process(Message message){
         logger.info("Receiving a message:" + message.toString());
+        logger.info("-------------------");
     }
 
 }
