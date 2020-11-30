@@ -10,3 +10,5 @@ For further reference, please consider the following sections:
 ### Guides
 The following guides illustrate how to use some features concretely:
 * [Messaging with RabbitMQ](https://spring.io/guides/gs/messaging-rabbitmq/)
+
+* [Apress Source Code - Spring Boot Messaging](https://github.com/Apress/spring-boot-messaging)

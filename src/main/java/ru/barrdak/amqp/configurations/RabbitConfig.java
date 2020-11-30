@@ -13,24 +13,19 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Configuration
 public class RabbitConfig {
 
-  public static final String EXCHANGE_ORDERS = "orders-exchange";
-
-  // Очередь задач
-  public static final String QUEUE_ORDERS = "orders-queue";
-
   @Bean
-  Queue ordersQueue() {
-    return QueueBuilder.durable(QUEUE_ORDERS).build();
+  Queue ordersQueue(@Value("${test.amqp.queue}") String queue) {
+    return QueueBuilder.durable(queue).build();
   }
 
   @Bean
-  Exchange ordersExchange() {
-    return ExchangeBuilder.topicExchange(EXCHANGE_ORDERS).build();
+  Exchange ordersExchange(@Value("${test.amqp.exchange}") String exchange) {
+    return ExchangeBuilder.topicExchange(exchange).build();
   }
 
   @Bean
   Binding binding(Queue ordersQueue, TopicExchange ordersExchange) {
-    return BindingBuilder.bind(ordersQueue).to(ordersExchange).with(QUEUE_ORDERS);
+    return BindingBuilder.bind(ordersQueue).to(ordersExchange).with(ordersQueue.getName());
   }
 
 }

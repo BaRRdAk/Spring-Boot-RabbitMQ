@@ -13,4 +13,5 @@ spring:
 
 test:
   amqp:
-    queue: test
+    exchange: "orders-exchange"
+    queue: "orders-queue"

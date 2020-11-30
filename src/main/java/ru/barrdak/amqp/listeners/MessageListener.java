@@ -12,7 +12,7 @@ public class MessageListener {
 
     static final Logger logger = LoggerFactory.getLogger(MessageListener.class);
 
-    @RabbitListener(queues = RabbitConfig.QUEUE_ORDERS)
+    @RabbitListener(queues = "${test.amqp.queue}")
     public void process(Message message){
         logger.info("Receiving a message:" + message.toString());
         logger.info("-------------------");

@@ -1,0 +1,6 @@
+- [ ] [Hello World!](https://www.rabbitmq.com/tutorials/tutorial-one-spring-amqp.html)
+- [ ] [Work queues](https://www.rabbitmq.com/tutorials/tutorial-two-spring-amqp.html)
+- [ ] [Publish/Subscribe](https://www.rabbitmq.com/tutorials/tutorial-three-spring-amqp.html)
+- [ ] [Routing](https://www.rabbitmq.com/tutorials/tutorial-four-spring-amqp.html)
+- [ ] [Topics](https://www.rabbitmq.com/tutorials/tutorial-five-spring-amqp.html)
+- [ ] [RPC](https://www.rabbitmq.com/tutorials/tutorial-six-spring-amqp.html)
