@@ -3,15 +3,24 @@ server:
 
 spring:
   rabbitmq:
-#    addresses: "amqp://admin:secret@localhost"
     host: "localhost"
     port: 5672
-
+#    addresses: "amqp://guest:guest@localhost"
 #    virtual-host: /production
 #    username: guest
 #    password: guest
 
 test:
   amqp:
-    exchange: "orders-exchange"
-    queue: "orders-queue"
+    direct:
+      exchange: "direct-orders-exchange"
+      queue: "direct-orders-queue"
+    topic:
+      exchange: "topic-orders-exchange"
+      queue: "topic-orders-queue"
+    headers:
+      exchange: "headers-orders-exchange"
+      queue: "headers-orders-queue"
+    fanout:
+      exchange: "fanout-orders-exchange"
+      queue: "fanout-orders-queue"

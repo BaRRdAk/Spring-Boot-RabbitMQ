@@ -9,20 +9,27 @@ import ru.barrdak.amqp.domain.Message;
 import ru.barrdak.amqp.services.defaultImpl.MessageSenderImpl;
 
 @Component
-public class Task_01 {
+public class RabbitTasks {
 
-    static final Logger logger = LoggerFactory.getLogger(Task_01.class);
+    static final Logger logger = LoggerFactory.getLogger(RabbitTasks.class);
 
     @Autowired
     private MessageSenderImpl messageSender;
 
-    @Scheduled(fixedDelay = 3000)
-    private void task_1(){
+    //@Scheduled(fixedDelay = 3000)
+    private void task_to_topic(){
         Message message = new Message();
         message.setId(System.currentTimeMillis());
-        message.setMessage("Message text");
-        messageSender.sendMessage(message);
+        message.setMessage("Message to topic exchange");
+        messageSender.sendTopicMessage(message);
         logger.info("Sending a message:" + message.toString());
+    }
+
+    @Scheduled(fixedDelay = 500)
+    private void task_to_fanout(){
+        String timestamp = Long.toString(System.currentTimeMillis());
+        messageSender.sendFanoutMessage(timestamp);
+        logger.info("Timestamp: " + timestamp);
     }
 
 }
